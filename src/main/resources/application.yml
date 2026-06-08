@@ -16,7 +16,7 @@ spring:
       max-request-size: 50MB
 
 server:
-    port: 8081
+    port: 3001
 
 kakao:
   client-id: ${KAKAO_CLIENT_ID}
