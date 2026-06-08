@@ -43,7 +43,7 @@ public class CsvDataLoader implements CommandLineRunner {
                 Reader reader = new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8);
                 CSVParser parser = CSVFormat.DEFAULT
                         .builder()
-                        .setHeader()
+                        .setHeader("name", "category", "district", "address", "latitude", "longitude")
                         .setSkipHeaderRecord(true)
                         .build()
                         .parse(reader)
