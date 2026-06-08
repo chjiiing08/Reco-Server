@@ -20,9 +20,8 @@ public class AnalysisRecord {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", columnDefinition = "TEXT")
     private String imageUrl;
-
 
     @Column(name = "item_name")
     private String itemName;
@@ -30,7 +29,7 @@ public class AnalysisRecord {
     @Column(name = "is_recyclable")
     private Boolean isRecyclable;
 
-    @Column(name = "disposal_method_summary")
+    @Column(name = "disposal_method_summary", columnDefinition = "TEXT")
     private String disposalMethodSummary;
 
     @Column(name = "material_probabilities", columnDefinition = "TEXT")
