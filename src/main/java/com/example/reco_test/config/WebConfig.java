@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:5173",
-                        "https://reco-client.pages.dev"
+                        "https://reco-client-2tw.pages.dev/"
                 )
                 .allowedMethods("*")
                 .allowedHeaders("*")
