@@ -25,15 +25,19 @@ public class CsvDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (repository.count() > 0) {
-            System.out.println("disposal_places 데이터가 이미 있어 CSV 적재를 건너뜁니다.");
+        loadIfEmpty("data/battery.csv", "BATTERY");
+        loadIfEmpty("data/clothes.csv", "CLOTHES");
+        loadIfEmpty("data/trash.csv", "TRASH");
+        loadIfEmpty("data/recycle.csv", "RECYCLE");
+    }
+
+    private void loadIfEmpty(String path, String type) throws Exception {
+        if (repository.countByPlaceType(type) > 0) {
+            System.out.println(type + " 데이터가 이미 있어 건너뜁니다.");
             return;
         }
 
-        loadCsv("data/battery.csv");
-        loadCsv("data/clothes.csv");
-        loadCsv("data/trash.csv");
-        loadCsv("data/recycle.csv");
+        loadCsv(path);
     }
 
     private void loadCsv(String path) throws Exception {

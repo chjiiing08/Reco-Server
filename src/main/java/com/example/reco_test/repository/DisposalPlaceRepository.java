@@ -13,4 +13,5 @@ public interface DisposalPlaceRepository extends JpaRepository<DisposalPlace, UU
     List<DisposalPlace> findByDistrict(String district);
 
     List<DisposalPlace> findByPlaceTypeAndDistrict(String placeType, String district);
+    long countByPlaceType(String placeType);
 }
