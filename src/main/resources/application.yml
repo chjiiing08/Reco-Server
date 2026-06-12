@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/reco
     username: postgres
-    password: ${DB_PASSWORD}
+    password:
 
   jpa:
     hibernate:
@@ -19,10 +19,9 @@ server:
     port: 3001
 
 kakao:
-  client-id: ${KAKAO_CLIENT_ID}
+  client-id:
   redirect-uri: http://localhost:5173/oauth/kakao/callback
 
 google:
-  client-id: ${GOOGLE_CLIENT_ID}
+  client-id:
   redirect-uri: http://localhost:5173/oauth/google/callback
-

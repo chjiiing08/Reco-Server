@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.reco_test.dto.DisposalPlaceResponseDTO;
 
 import java.util.List;
 
@@ -23,5 +24,15 @@ public class DisposalPlaceController {
             @RequestParam(required = false) String district
     ) {
         return disposalPlaceService.getPlaces(type, district);
+    }
+
+    @GetMapping("/nearby")
+    public List<DisposalPlaceResponseDTO> getNearbyPlaces(
+            @RequestParam String type,
+            @RequestParam double latitude,
+            @RequestParam double longitude,
+            @RequestParam(required = false) String district
+    ) {
+        return disposalPlaceService.getNearbyPlaces(type, latitude, longitude, district);
     }
 }
