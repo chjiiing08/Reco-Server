@@ -1,9 +1,12 @@
 package com.example.reco_test.controller;
 
 import com.example.reco_test.dto.UserDTO;
+import com.example.reco_test.dto.UserUpdateRequestDTO;
 import com.example.reco_test.entity.User;
 import com.example.reco_test.repository.UserRepository;
+import com.example.reco_test.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.OffsetDateTime;
@@ -16,6 +19,7 @@ import java.util.UUID;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
     @PostMapping("/signup")
     public User signup(@RequestBody UserDTO dto) {
@@ -44,5 +48,17 @@ public class UserController {
         }
 
         return user;
+    }
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserDTO> getUser(@PathVariable UUID userId) {
+        return ResponseEntity.ok(userService.getUser(userId));
+    }
+
+    @PatchMapping("/{userId}")
+    public ResponseEntity<UserDTO> updateUserName(
+            @PathVariable UUID userId,
+            @RequestBody UserUpdateRequestDTO request
+    ) {
+        return ResponseEntity.ok(userService.updateUserName(userId, request));
     }
 }

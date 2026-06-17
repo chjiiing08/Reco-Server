@@ -1,5 +1,6 @@
 package com.example.reco_test.entity;
 
+import com.example.reco_test.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,9 @@ public class User {
     private UUID id;
 
     private String username;
+
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "password_hash")
     private String passwordHash;
